@@ -1,12 +1,105 @@
 <!DOCTYPE html>
 <html>
-    <label for="nama">Nama : </label>
-    <input type="text" id="nama" placeholder="
+    <head>
+        <html lang="en">
+<head>
+    <meta charset="UTF-8">
+    <meta http-equiv="X-UA-Compatible" content="IE=edge">
+    <meta name="viewport" content="width=device-width, initial-scale=1.0">
+    <title>MODUL Java Script </title>
+</head>
+
+<body>
+    <script>
+        var p = [];
+var button = "";
+var x = "";
+var inp = "";
+
+function tampil() {
+  var total = document.getElementById("total").value;
+  var pilihan = "";
+
+  button = '<button onclick="buttonn()">SHOW</button>';
+
+  for (var i = 1; i <= total; i++) {
+    pilihan +=
+      '<p> Pilihan ' +
+      i +
+      ': <input type="text" id="inp' +
+      i +
+      '" placeholder="Masukkan Teks Pilihan"> </p>';
+  }
+  pilihan += button;
+  document.getElementById("pilihan").innerHTML = pilihan;
+}
+
+function buttonn() {
+  var total = document.getElementById("total").value;
+  var teksPil = "";
+
+  button = '<button onclick="result()">YA</button>';
+
+  for (var i = 1; i <= total; i++) {
+    p[i - 1] = document.getElementById("inp" + i).value;
+    inp += p[i - 1] + " , ";
+    teksPil +=
+      '<p><input type="radio" name="pilihan" value="' +
+      p[i - 1] +
+      '"> ' +
+      p[i - 1] +
+      "</p>";
+  }
+  teksPil += button;
+  document.getElementById("butRadio").innerHTML
+ = teksPil;
+        }
+
+        function result(){
+            //document.getElementById("frm1").submit();
+            var jeneng = document.getElementById("jeneng").value;
+            total = document.getElementById("total").value;
+            let a
+            var radioB = document.getElementsByName("pilihan");
+            for(let i=0; i<radioB.length; i++){
+                if(radioB[i].checked){
+                    x = radioB[i].value;
+                    a = x
+                }
+            }
+
+            var maka = 'Hallo, nama saya '+jeneng+', saya mempunyai sejumlah '+total+ ' pilihan yaitu ' +inp+ ' dan saya memilih ' +a+ '.'
+
+            document.getElementById("hsl").innerHTML = maka;
+        }
+    </script> 
+
+    <pre>
+        <h1>
+         NAMA : Aditya Putra Wicaksana
+         NIM  : 215314075
+
+              <img src="adit.jpeg" alt="Image" width="30%">
+                 
+        </h1>
+    </pre>
+    
+    <label for="jeneng">Nama : </label>
+    <input type="text" id="jeneng" placeholder="
     Masukkan Nama">
     <br>
-    <label for="banyakPil">Jumlah Pilihan :</label>
-    <input type="number" id="banyakPil" placeholder="Masukkan Jumlah Pilihan">
+
+    <label for="total">Jumlah Pilihan :</label>
+    <input type="number" id="total" placeholder="Masukkan Jumlah Pilihan">
     <br>
-    <button onclick="tampilPil()">OK</button>
+    <button onclick="tampil()">OK</button>
     <div id="pilihan"></div>
+
+    <div id="butRadio"></div>
+ 
+    <div id="hsl"></div>
+        
+      </body>
+      
+    
 </html>
